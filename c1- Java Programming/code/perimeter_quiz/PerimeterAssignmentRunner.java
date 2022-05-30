@@ -72,7 +72,7 @@ public class PerimeterAssignmentRunner {
     }
 
     public double getLargestPerimeterMultipleFiles() {
-    
+    return 0.0;
     }
 
     public String getFileWithLargestPerimeter() {
