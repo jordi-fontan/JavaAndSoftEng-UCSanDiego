@@ -21,28 +21,58 @@ public class PerimeterAssignmentRunner {
     }
 
     public int getNumPoints (Shape s) {
-        // Put code here
-        return 0;
+       int n=0;
+    	for(Point point : s.getPoints()) {
+    		n++;
+       }
+       return n;
+      
+        
     }
 
     public double getAverageLength(Shape s) {
         // Put code here
-        return 0.0;
+        return this.getPerimeter(s)/this.getNumPoints(s);
     }
 
     public double getLargestSide(Shape s) {
         // Put code here
-        return 0.0;
+       
+    	 double largestSoFar=0;
+    	 double x=0,y=0;
+    	 int n=0;
+    	
+    	 for(Point point : s.getPoints()) {
+     		double xc=point.getX();
+     		double yc=point.getY();
+     		if( n==0) { x=xc;y=yc;n++;}
+     		else{
+     			double distance=Math.sqrt((xc-x)*(xc-x)+(yc-y)*(yc-y));
+     			System.out.println("			debug    distance = " + distance);
+     			if(distance>largestSoFar) largestSoFar=distance;
+     		}
+     		
+        }
+        return largestSoFar;
+
     }
 
     public double getLargestX(Shape s) {
-        // Put code here
-        return 0.0;
+    	double largestXSoFar=0;
+
+   	 	for(Point point : s.getPoints()) {
+    		
+    		
+    			if(point.getX()>largestXSoFar) largestXSoFar=point.getX();
+    		}
+    		
+      
+       return largestXSoFar;
+     
     }
 
     public double getLargestPerimeterMultipleFiles() {
-        // Put code here
-        return 0.0;
+    
     }
 
     public String getFileWithLargestPerimeter() {
@@ -56,6 +86,10 @@ public class PerimeterAssignmentRunner {
         Shape s = new Shape(fr);
         double length = getPerimeter(s);
         System.out.println("perimeter = " + length);
+        System.out.println("number of points = " + getNumPoints(s));
+        System.out.println("average = " + getAverageLength(s));
+        System.out.println("largest side = " + getLargestSide(s));
+        System.out.println("largest X = " + getLargestX(s));
     }
     
     public void testPerimeterMultipleFiles() {
@@ -90,5 +124,6 @@ public class PerimeterAssignmentRunner {
     public static void main (String[] args) {
         PerimeterAssignmentRunner pr = new PerimeterAssignmentRunner();
         pr.testPerimeter();
+        
     }
 }
