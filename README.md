@@ -1,4 +1,4 @@
-# JavaAndSoftEng-UCSanDiego
+# JavaAndSoftEng-UCSanDiego-DukeU
 ## Java Programming and Software Engineering Fundamentals Specialization - UCSanDiego
 
 > *** Repo Mainly Used for coding  and Portfolio purposes*** <br/>
