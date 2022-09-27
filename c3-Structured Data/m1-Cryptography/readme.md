@@ -16,10 +16,14 @@ By the end of this module, you will be able to:
 Practice effective algorithm design.
 
 ## Lecture Slides
-- Implementing the Caesar Cipher
+
+- lesson 1 Implementing the Caesar Cipher
 
 
-- Breaking the Caesar Cipher
+- lesson 2 Breaking the Caesar Cipher
 
-- Object Oriented Caesar Cipher
+- lesson 3 Object Oriented Caesar Cipher
+
+
+
 
