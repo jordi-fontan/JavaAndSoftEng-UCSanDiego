@@ -3,30 +3,48 @@ package dukejavac3w1.caesar;
 public class Caesar {
 	String alphabet="abcdefghijklmnopqrstuvwxyz";
 	String shitedAlphabet;
-	public String encryptCaesar(String input, int key)
+	private StringBuilder sb;
+	public StringBuilder getSb() {
+		return sb;
+	}
+
+	private int key;
+	
+	public Caesar(int key) {
+		super();
+		this.key = key;
+		System.out.println("Creating object Caesar with key " + key);
+		
+		this.setShiftAlfabet(key);
+	}
+
+	public String encryptCaesar(String input)
 	{
 		
-		StringBuilder sb=new StringBuilder(input);
-		this.setShiftAlfabet(key);
-		 
+		
+		
+		this.sb = new StringBuilder(input);
 		
 		
 		for(int i=0;i<sb.length();i++)
 		{
 			char currChar = sb.charAt(i);
-			int idx = alphabet.indexOf(currChar);
+			char currCharLowerCase=Character.toLowerCase(currChar);
+			int idx = alphabet.indexOf(currCharLowerCase);
 			if(idx!=-1) {
 				
+				
 				char newChar= this.shitedAlphabet.charAt(idx);
+				if(Character.isUpperCase(currChar)) newChar=Character.toUpperCase(newChar);
 				sb.setCharAt(i, newChar);
 			}		
 		}	
-		System.out.println(sb);
 		
 		
 		
 		
-		return shitedAlphabet;
+		
+		return sb.toString();
 		
 		
 	}
@@ -35,16 +53,24 @@ public class Caesar {
 	{
 		shitedAlphabet=alphabet.substring(key) + 
 				alphabet.substring(0,key);
-		System.out.println("Shifted Alphabet : "+ shitedAlphabet);
+		//System.out.println("Shifted Alphabet : "+ shitedAlphabet);
 		
+	}
+
+public int getKey() {
+		return key;
 	}
 
 public static void main(String agrs[])
 {
-	String test= "at noon be in the conference room with your hat on for a surprise party. yell loud!";
-	Caesar c=new Caesar();
-	c.encryptCaesar(c.encryptCaesar(test, 8),21);
-
+	String test= "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
+	Caesar c1=new Caesar(13);
+	Caesar c2=new Caesar(21);
+	
+	c2.encryptCaesar(c1.encryptCaesar(test));
+	
+	System.out.println("First Encryption with key " + c1.getKey() + " : " +c1.getSb());
+	System.out.println("Second Encryption (over already Encrypted Message ) with key " + c2.getKey() + " : " +c2.getSb());
 }
 
 
