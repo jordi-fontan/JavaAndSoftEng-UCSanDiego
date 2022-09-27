@@ -32,11 +32,20 @@ Write a void method countWordLengths that has two parameters,
         - For any words equal to or larger than the last index of the counts array, 
         count them as the largest size represented in the counts array.
 
-        - You may want to consider using the Character.isLetter method that returns true if a character is a letter, and false otherwise. For example, Character.isLetter(‘a’) returns true, and Character.isLetter(‘-’) returns false. 
+        - You may want to consider using the Character.isLetter method that returns true if a character is a letter, 
+        and false otherwise. For example, Character.isLetter(‘a’) returns true,
+         and Character.isLetter(‘-’) returns false. 
 
-Write a void method testCountWordLengths that creates a FileResource so you can select a file, and creates a counts integer array of size 31. This method should call countWordLengths with a file and then print the number of words of each length. Test it on the small file smallHamlet.txt shown below.
+Write a void method testCountWordLengths that creates a FileResource so you can select a file,
+ and creates a counts integer array of size 31.
+  This method should call countWordLengths with a file and then print the number of words of each length. 
+  Test it on the small file smallHamlet.txt shown below.
 
-Write a method indexOfMax that has one parameter named values that is an integer array. This method returns the index position of the largest element in values. Then add code to the method testCountWordLengths to call indexOfMax to determine the most common word length in the file. For example, calling indexOfMax after calling countWordLengths on the file smallHamlet.txt should return 3.
+Write a method indexOfMax that has one parameter named values that is an integer array. 
+This method returns the index position of the largest element in values.
+ Then add code to the method testCountWordLengths to call indexOfMax to determine the most common 
+ word length in the file. For example, calling indexOfMax after calling countWordLengths on the file smallHamlet.txt 
+ should return 3.
 
 First test your program on a small file, such as this simple file shown called smallHamlet.txt:
 
@@ -74,11 +83,28 @@ public class WordLengths {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int indexOfMax(int a[])
+	 {
+		int max=0;
+		int index=0;
+		for(int i=0;i<a.length;i++)
+		{
+			if(a[i]>max) {
+				max=a[i];
+				index=i;
+			}
+			
+			
+		}	
+		return index;
+	 }
 	
-	public void countWordLengths(String resource,Integer[] counts)
+	public int[] countWordLengths(String resource,int[] counts)
 	{
 		StringBuffer sb=null;
 	
+		
+		
 		
 		try  
 		{  
@@ -108,16 +134,56 @@ public class WordLengths {
 		{
 			
 			counter++;
-			st.nextToken();
+			String a=st.nextToken();
+			System.out.println(a);
+			
+							
+			int l= a.length();
+			
+			 /*- For any words equal to or larger than the last index of the counts array, 
+		        count them as the largest size represented in the counts array.
+			*/
+			
+			if(l>(counts.length-1)) l=counts.length-1;
+			
+			
+			 /*- You may want to consider using the Character.isLetter method that
+			  *  returns true if a character is a letter, and false otherwise. 
+			     For example, Character.isLetter(‘a’) returns true, 
+			     and Character.isLetter(‘-’) returns false. 
+			*/
+			
+			char first=a.charAt(0);
+			char last=a.charAt(l-1);
+			
+			if(!Character.isLetter(first)) {
+				//System.out.println("Corrected "+a +" from " + l + " to " + (l-1));l--;
+				}
+			if(!Character.isLetter(last)) {
+				//System.out.println("Corrected "+a +" from " + l + " to " + (l-1));l--;
+				}
+			
+			
+			// System.out.println(a + " -----> "+ l);
+			if(l>0) counts[l]++;
+			
 		}	 
-		System.out.println(counter); 
+		//System.out.println(counter); 
+		return counts;
 	}
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 			WordLengths wl=new WordLengths();
-			wl.countWordLengths("C:\\smallHamlet.txt", null);
+			int[] c=new int[31];
+			wl.countWordLengths("C:\\sharedData\\lotsOfWords2.txt", c);
+			
+			
+			System.out.println("\n\n Max word length is: " + wl.indexOfMax(c) );
+			for(int i=0; i<c.length;i++) System.out.println(" Length= "+i+"  "+ c[i]);
+			
+			System.out.println("\n\n Max word length is: " + wl.indexOfMax(c) + " Number of Ocurrences: " + c[wl.indexOfMax(c)]);
 	}
 
 }
