@@ -1,7 +1,14 @@
 package dukejavac3w1.caesar;
 
 public class Caesar {
-	String alphabet="abcdefghijklmnopqrstuvwxyz";
+	static String lalphabet="abcdefghijklmnopqrstuvwxyz";
+	static String ualphabet;
+	static
+	{
+		ualphabet=Caesar.lalphabet.toUpperCase();
+		
+	}
+	
 	String shitedAlphabet;
 	private StringBuilder sb;
 	public StringBuilder getSb() {
@@ -30,7 +37,7 @@ public class Caesar {
 		{
 			char currChar = sb.charAt(i);
 			char currCharLowerCase=Character.toLowerCase(currChar);
-			int idx = alphabet.indexOf(currCharLowerCase);
+			int idx = ualphabet.indexOf(currCharLowerCase);
 			if(idx!=-1) {
 				
 				
@@ -51,8 +58,8 @@ public class Caesar {
 	
 	public void setShiftAlfabet(int key)
 	{
-		shitedAlphabet=alphabet.substring(key) + 
-				alphabet.substring(0,key);
+		shitedAlphabet=ualphabet.substring(key) + 
+				ualphabet.substring(0,key);
 		//System.out.println("Shifted Alphabet : "+ shitedAlphabet);
 		
 	}
