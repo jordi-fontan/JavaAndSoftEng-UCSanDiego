@@ -3,5 +3,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry excluding="src-duke/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/src-duke"/>
+	<classpathentry kind="src" path="test.dukejavac3w1.caesar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

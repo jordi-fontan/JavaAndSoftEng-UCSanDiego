@@ -79,7 +79,7 @@ public static String findGeneThreeCondonStop(String dna) {
 		int tgaIndex = findStopCodon(dna,startIndex,"TGA");
 		
 		//find the smallest stop index and call it minIndex
-		
+		// Math.min !!
 		int minIndex = taaIndex;
 		if(tagIndex<minIndex) minIndex=tagIndex;
 		if (tgaIndex<minIndex) minIndex=tgaIndex;
