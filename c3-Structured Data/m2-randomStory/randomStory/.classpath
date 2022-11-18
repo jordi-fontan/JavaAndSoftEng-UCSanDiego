@@ -25,5 +25,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="src/main/resources"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.jupiter.api_5.8.1.v20211018-1956.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://junit.org/junit5/docs/current/api/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
